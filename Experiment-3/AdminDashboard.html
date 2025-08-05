@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <style>
+    :root {
+      --header-bg: #4CAF50;
+      --header-text: white;
+      --sidebar-bg: #f4f4f4;
+      --sidebar-text: #333;
+      --main-bg: white;
+      --main-text: #333;
+      --footer-bg: #4CAF50;
+      --footer-text: white;
+    }
+
+    body.dark-mode {
+      --header-bg: #333;
+      --header-text: #f4f4f4;
+      --sidebar-bg: #555;
+      --sidebar-text: #eee;
+      --main-bg: #222;
+      --main-text: #eee;
+      --footer-bg: #333;
+      --footer-text: #f4f4f4;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: auto 1fr auto;
+      height: 100vh;
+      background: var(--main-bg);
+      color: var(--main-text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      grid-area: header;
+      background: var(--header-bg);
+      color: var(--header-text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+
+    header label {
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    sidebar, nav {
+      grid-area: sidebar;
+      background: var(--sidebar-bg);
+      padding: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-bottom: 10px;
+    }
+
+    nav ul li a {
+      color: var(--sidebar-text);
+      text-decoration: none;
+    }
+
+    main {
+      grid-area: main;
+      padding: 20px;
+      background: var(--main-bg);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    footer {
+      grid-area: footer;
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+    <label>
+      <input type="checkbox" id="themeToggle"> Dark Mode
+    </label>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Users</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h2>Welcome, Admin!</h2>
+    <p>This is the main content area. Add charts, tables, or reports here.</p>
+  </main>
+  <footer>
+    © 2025 Admin Panel
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('change', function() {
+      document.body.classList.toggle('dark-mode', this.checked);
+    });
+  </script>
+</body>
+</html>
